@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+{% extends "base.html" %}
 
 {% for bet in catalog %}
     <p>
-        <button onclick="document.location='{% url 'stavki:makeorder' bet.id 0 100 %}'">Поставить
+        <button onclick="document.location='{% url 'makeorder' bet.id 0 100 %}'">Поставить
             на {{ bet.enemy_f }}</button>
         {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
-        <button onclick="document.location='{% url 'stavki:makeorder' bet.id 1 100 %}'">Поставить
+        <button onclick="document.location='{% url 'makeorder' bet.id 1 100 %}'">Поставить
             на {{ bet.enemy_s }}</button>
     </p>
     <h3>Все ставки по этому матчу</h3>
@@ -20,5 +13,4 @@
         <p>{{ order.user }} поставил на {{ order.choice }} {{ order.order_sum }} руб</p>
     {% endfor %}
 {% endfor %}
-</body>
-</html>
+

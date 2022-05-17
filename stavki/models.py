@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 class Users(AbstractUser):
-    balance = models.DecimalField(max_digits=9, decimal_places=2)
+    balance = models.DecimalField(max_digits=9, decimal_places=2, default=0)
 
 
 class Catalog(models.Model):
