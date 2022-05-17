@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'stavki'
 ]
 
+AUTH_USER_MODEL = 'stavki.Users'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

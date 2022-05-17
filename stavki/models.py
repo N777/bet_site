@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.db import models
 
 
 # Create your models here.
 
-class Users(User):
+class Users(AbstractUser):
     balance = models.DecimalField(max_digits=9, decimal_places=2)
 
 

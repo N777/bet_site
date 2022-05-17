@@ -5,16 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-    {% for bet in catalog %}
-        <p>
-            <button onclick="document.location='{% url 'stavki:makeorder' bet.id 0 100 %}'">Поставить на {{ bet.enemy_f }}</button>
-            {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
-            <button onclick="document.location='{% url 'stavki:makeorder' bet.id 1 100 %}'">Поставить на {{ bet.enemy_s }}</button>
-        </p>
-        <h3>Все ставки по этому матчу</h3>
-        {% for order in bet.orders %}
-            <p>{{ order.user }} поставил на {{ order.choice }} {{ order.order_sum }} руб</p>
-        {% endfor %}
+
+
+{% for bet in catalog %}
+    <p>
+        <button onclick="document.location='{% url 'stavki:makeorder' bet.id 0 100 %}'">Поставить
+            на {{ bet.enemy_f }}</button>
+        {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
+        <button onclick="document.location='{% url 'stavki:makeorder' bet.id 1 100 %}'">Поставить
+            на {{ bet.enemy_s }}</button>
+    </p>
+    <h3>Все ставки по этому матчу</h3>
+    {% for order in bet.orders %}
+        <p>{{ order.user }} поставил на {{ order.choice }} {{ order.order_sum }} руб</p>
     {% endfor %}
+{% endfor %}
 </body>
 </html>
