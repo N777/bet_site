@@ -1,10 +1,12 @@
+{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
     <title>{% block title %} Django Auth & Registration Templates {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
 </head>
 
 <body>
@@ -31,6 +33,11 @@
     <div id="footer">
     {% block footer %}
         <hr />
+            <div class="f_logo">
+            <a href="index.html"><img class="f_logo" src="static/img/footer.png"></a>
+        </div>
+        <p>© ETERNITY ENTERTAINMENT, 2022. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+        <p>Все упомянутые товарные знаки являются собственностью соответствующих владельцев.</p>
     {% endblock %}
     </div>
 </body>
