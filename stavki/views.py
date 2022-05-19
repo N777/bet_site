@@ -29,4 +29,4 @@ def makeorder(request, catalog_id: int, side: int, sum: float):
     user = Users.objects.get(pk=1)
     new_order = Orders(catalog_id=catalog_id, choice=bool(side), order_sum=sum, user=user)
     new_order.save()
-    return HttpResponseRedirect(reverse('stavki:index'))
+    return HttpResponseRedirect(reverse('index'))

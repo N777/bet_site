@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
 
 {% for bet in catalog %}
     <p>
@@ -14,3 +17,4 @@
     {% endfor %}
 {% endfor %}
 
+{% endblock %}

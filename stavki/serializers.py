@@ -25,7 +25,7 @@ def order_to_dict(o: Orders) -> dict:
         'id': o.pk,
         'catalog': bet,
         'choice': choice_to_name(bet, o.choice),
-        'user': "Игорь",
+        'user': o.user.first_name,
         'order_sum': o.order_sum
     }
 
