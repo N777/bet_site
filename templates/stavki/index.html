@@ -9,11 +9,10 @@
 
 {% for bet in catalog %}
     <p>
-        <button onclick="document.location='{% url 'makeorder' bet.id 0 100 %}'">Поставить
-            на {{ bet.enemy_f }}</button>
         {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
-        <button onclick="document.location='{% url 'makeorder' bet.id 1 100 %}'">Поставить
-            на {{ bet.enemy_s }}</button>
+        {% if user.is_authenticated %}
+        <button onclick="document.location='{% url 'makeorder' bet.id %}'"> Сделать ставку </button>
+        {% endif %}
     </p>
     <h3>Все ставки по этому матчу</h3>
     {% for order in bet.orders %}

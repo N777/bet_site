@@ -18,9 +18,10 @@
         {% trans "Logged in" %}: {{ user.username }}
         Баланс: {{ user.balance }}
         (<a href="{% url 'logout' %}">{% trans "Log out" %}</a> |
-        <a href="{% url 'password_change' %}">{% trans "Change password" %}</a>)
+        <a href="{% url 'add-balance' %}">Пополнить баланс</a>)
     {% else %}
-       <a href="{% url 'login' %}">{% trans "Log in" %}</a>
+       (<a href="{% url 'login' %}">{% trans "Log in" %}</a> |
+        <a href="{% url 'django_registration_register' %}">Регистрация</a>)
     {% endif %}
     <hr />
     {% endblock %}

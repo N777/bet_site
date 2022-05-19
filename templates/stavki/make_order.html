@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h3>Матч между {{ order.enemy_f }} и {{ order.enemy_s }}</h3>
+<form action="{% url 'makeorder' order.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Сделать ставку">
+</form>
+
+{% endblock %}
