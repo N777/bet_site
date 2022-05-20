@@ -19,7 +19,7 @@ class BalanceForm(forms.Form):
 
 
 class WinnerForm(forms.Form):
-    choice = forms.ChoiceField()
+    choice = forms.ChoiceField(label='Победитель')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
