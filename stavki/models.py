@@ -14,6 +14,8 @@ class Catalog(models.Model):
     rate = models.FloatField()
     end = models.DateField(auto_now=True)
     result = models.BooleanField(default=False)
+    winner = models.CharField(max_length=300, choices=(('1', enemy_s), ('0', enemy_f), (None, None)), default=None,
+                              blank=True)
 
     def __str__(self):
         return f"{self.enemy_s}:{self.enemy_f}"

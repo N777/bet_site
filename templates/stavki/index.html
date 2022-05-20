@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
 
 {% load i18n %}
 
 {% block content %}
 
-{% for bet in catalog %}
-    <p>
-        {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
-        {% if user.is_authenticated %}
-        <button onclick="document.location='{% url 'makeorder' bet.id %}'"> Сделать ставку </button>
-        {% endif %}
-    </p>
-    <h3>Все ставки по этому матчу</h3>
-    {% for order in bet.orders %}
-        <p>{{ order.user }} поставил на {{ order.choice }} {{ order.order_sum }} руб</p>
+    {% for bet in catalog %}
+        <p>
+            {{ bet.enemy_f }} {{ bet.rate }} {{ bet.enemy_s }}
+            {% if user.is_authenticated %}
+                <button onclick="document.location='{% url 'makeorder' bet.id %}'"> Сделать ставку</button>
+            {% endif %}
+        <form action="{% url 'set-winner' bet.id %}" method="post">
+            {% csrf_token %}
+            {{ bet.form }}
+            <input type="submit" value="Выиграли">
+        </form>
+        </p>
+        <h3>Все ставки по этому матчу</h3>
+        {% for order in bet.orders %}
+            <p>{{ order.user }} поставил на {{ order.choice }} {{ order.order_sum }} руб</p>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
 
 {% endblock %}
